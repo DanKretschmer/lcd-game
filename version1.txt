@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>LCD Handheld Game</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #111;
+      color: #0f0;
+      font-family: monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .game-container {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      height: 500px;
+      border: 8px solid #555;
+      border-radius: 20px;
+      background: #222;
+      position: relative;
+    }
+    @media (min-width: 768px) {
+      .game-container {
+        width: 600px;
+        height: 300px;
+        flex-direction: row;
+      }
+    }
+    .screen {
+      flex: 1;
+      background: #000;
+      border: 4px inset #333;
+      margin: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    .sprite {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #0f0;
+    }
+    .controls {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+    }
+    .controls button {
+      padding: 10px;
+      background: #333;
+      color: #0f0;
+      border: 2px solid #0f0;
+      border-radius: 5px;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <div class="screen">
+      <div id="sprite" class="sprite" style="left: 10px; top: 10px;"></div>
+    </div>
+    <div class="controls">
+      <button onclick="moveSprite('left')">←</button>
+      <button onclick="moveSprite('up')">↑</button>
+      <button onclick="moveSprite('down')">↓</button>
+      <button onclick="moveSprite('right')">→</button>
+    </div>
+  </div>
+
+  <script>
+    const sprite = document.getElementById('sprite');
+    let x = 10, y = 10;
+
+    function moveSprite(direction) {
+      switch (direction) {
+        case 'left': x -= 10; break;
+        case 'right': x += 10; break;
+        case 'up': y -= 10; break;
+        case 'down': y += 10; break;
+      }
+      sprite.style.left = x + 'px';
+      sprite.style.top = y + 'px';
+    }
+  </script>
+</body>
+</html>

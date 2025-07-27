@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #222;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  max-width: 600px;
+  background: #444;
+  border: 10px solid #333;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 0 20px #000;
+}
+
+.lcd-screen {
+  flex: 1;
+  aspect-ratio: 4 / 3;
+  background: #cfc;
+  border: 2px inset #aaa;
+  position: relative;
+  overflow: hidden;
+}
+
+.sprite {
+  width: 30px;
+  height: 30px;
+  background: #000;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding-left: 10px;
+}
+
+.buttons button {
+  font-size: 2rem;
+  background: #888;
+  border: 2px solid #555;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .game-wrapper {
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+  }
+
+  .buttons {
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px 0;
+  }
+}
